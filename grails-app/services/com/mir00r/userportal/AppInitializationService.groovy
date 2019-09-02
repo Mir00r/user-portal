@@ -2,13 +2,14 @@ package com.mir00r.userportal
 
 import user.portal.User
 
+
 class AppInitializationService {
 
     static initialize() {
-        initMember()
+        initUser()
     }
 
-    private static initMember() {
+    private static initUser() {
         if (User.count() == 0) {
             User user = new User()
             user.firstName = "System"
