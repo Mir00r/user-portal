@@ -3,8 +3,7 @@ package com.mir00r.userportal
 class AuthenticationController {
 
     AuthenticationService authenticationService
-    UserService userService
-
+    MemberService memberService
     /**
      * Redirect the dashboard index page after login authentication
      * @return
@@ -47,9 +46,9 @@ class AuthenticationController {
      * @return
      */
     def doRegistration() {
-        def response = userService.save(params)
+        def response = memberService.save(params)
         if (response.isSuccess) {
-            authenticationService.setUserAuthorization(response.model)
+            authenticationService.setMemberAuthorization(response.model)
             redirect(controller: "dashboard", action: "index")
         } else {
             flash.redirectParams = response.model

@@ -2,31 +2,28 @@ package user.portal
 
 import com.mir00r.userportal.GlobalConfig
 
-class User {
+class Member {
 
     Integer id
     String firstName
     String lastName
     String password
+    String email
     String address
     String phoneNumber
-    String email
     Integer age
-    String userType = GlobalConfig.USER_TYPE.USER
+    String memberType = GlobalConfig.USER_TYPE.USER
     Boolean isActive = true
-    Date birthDate
 
+    Date birthDate
     Date dateCreated
     Date lastUpdated
 
     static constraints = {
         email(email: true, nullable: false, unique: true, blank: false)
         password(blank: false)
-        //firstName(nullable: false)
+        firstName(nullable: false)
         lastName(nullable: true)
-        address(nullable: true)
-        phoneNumber(nullable: false)
-        //birthDate(nullable: false)
     }
 
     def beforeInsert() {
