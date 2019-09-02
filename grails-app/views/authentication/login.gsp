@@ -9,13 +9,12 @@
 <div id="global-wrapper">
     <div id="content-wrapper">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-6 col-md-4 mx-auto">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
                     <g:img dir="images" file="user.svg" class="profile-img"/>
                     <h1 class="text-center login-title">Login Panel</h1>
 
-                    <div class="account-wall">
-
+                    <div class="card">
                         <g:form controller="authentication" action="doLogin" class="form-signin">
                             <div class="form-group">
                                 <label class="text-center login-form-level"><g:message code="email.address"/></label>
