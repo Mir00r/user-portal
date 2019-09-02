@@ -22,11 +22,11 @@ class User {
     static constraints = {
         email(email: true, nullable: false, unique: true, blank: false)
         password(blank: false)
-        firstName(nullable: false)
-        lastName(nullable: false)
+        //firstName(nullable: false)
+        lastName(nullable: true)
         address(nullable: true)
         phoneNumber(nullable: false)
-        birthDate(nullable: false)
+        //birthDate(nullable: false)
     }
 
     def beforeInsert() {
