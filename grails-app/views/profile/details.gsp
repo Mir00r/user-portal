@@ -9,8 +9,8 @@
 <meta name="layout" content="main"/>
 
 <div class="card">
-    <div class="card-header">
-        <g:message code="user" args="['Details']"/>
+    <div class="card-header text-center page-title">
+        <g:message code="user" args="['Profile']"/>
     </div>
 
     <div class="card-body">
@@ -33,8 +33,5 @@
                 </tr>
             </table>
         </g:if>
-        <div class="form-action-panel">
-            <g:link controller="member" action="index" class="btn btn-primary"><g:message code="cancel"/></g:link>
-        </div>
     </div>
 </div>

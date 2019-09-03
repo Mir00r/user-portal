@@ -41,13 +41,17 @@ class UIHelperTagLib {
         if (authenticationService.isAdminUser()) {
             navigations.add([controller: "user", action: "index", name: "User List"])
         } else {
-            navigations.add([controller: "user", action: "index", name: "Profile Page"])
-            navigations.add([controller: "user", action: "index", name: "Change Password"])
+            navigations.add([controller: "profile", action: "details", id: authenticationService.getLoginUserId(), name: "Profile Page"])
+            navigations.add([controller: "profile", action: "index", name: "Change Password"])
         }
 
         navigations.each { menu ->
             out << '<li class="list-group-item">'
-            out << g.link(controller: menu.controller, action: menu.action) { g.message(code: menu.name, args: ['']) }
+            if (menu.id > 0) {
+                out << g.link(controller: menu.controller, action: menu.action, id: menu.id) { g.message(code: menu.name, args: ['']) }
+            } else {
+                out << g.link(controller: menu.controller, action: menu.action) { g.message(code: menu.name, args: ['']) }
+            }
             out << '</li>'
         }
     }
