@@ -22,7 +22,7 @@ class AuthenticationController {
      */
     def doLogin() {
         if (authenticationService.doLogin(params.email, params.password)) {
-            redirect(controller: "dashboard", action: "index")
+            redirect(controller: "profile", action: "details", id: authenticationService.getLoginUserId())
         } else {
             flash.message = AppUtils.infoMessage("Email or password is not valid.", false)
             redirect(controller: "authentication", action: "login")
@@ -50,7 +50,7 @@ class AuthenticationController {
         def response = userService.save(params)
         if (response.isSuccess) {
             authenticationService.setUserAuthorization(response.model)
-            redirect(controller: "dashboard", action: "index")
+            redirect(controller: "profile", action: "details", id: response.model.getAt("id"))
         } else {
             flash.redirectParams = response.model
             redirect(controller: "authentication", action: "registration")

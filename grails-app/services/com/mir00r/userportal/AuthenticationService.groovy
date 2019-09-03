@@ -74,4 +74,18 @@ class AuthenticationService {
         }
         return false
     }
+
+    /**
+     * get logged in user id
+     * @param email
+     * @param password
+     * @return
+     */
+    def getLoginUserId() {
+        def user = getUser()
+        if (user) {
+            return user.getId()
+        }
+        return 0
+    }
 }

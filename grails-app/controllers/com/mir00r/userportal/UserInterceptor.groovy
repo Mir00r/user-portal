@@ -10,7 +10,7 @@ class UserInterceptor {
             return true
         }
         flash.message = AppUtils.infoMessage("You are not Authorized for this Action.", false)
-        redirect(controller: "dashboard", action: "index")
+        redirect(controller: "profile", action: "index")
         return false
     }
 }
