@@ -15,21 +15,29 @@
 
     <div class="card-body">
         <g:if test="${user}">
-            <table class="table">
+            <table class="table table-striped">
                 <tr>
-                    <th class="text-right"><g:message code="first.name"/></th><td
-                        class="text-left">${user.firstName}</td>
+                    <th class="text-right"><g:message code="first.name"/> </th>
+                    <td class="text-left">${user.firstName}</td>
                 </tr>
                 <tr>
                     <th class="text-right"><g:message code="last.name"/></th><td
                         class="text-left">${user.lastName}</td>
                 </tr>
                 <tr>
+                    <th class="text-right"><g:message code="address"/></th><td
+                        class="text-left">${user.address}</td>
+                </tr>
+                <tr>
+                    <th class="text-right"><g:message code="phone.number"/></th><td
+                        class="text-left">${user.phoneNumber}</td>
+                </tr>
+                <tr>
                     <th class="text-right"><g:message code="email"/></th><td class="text-left">${user.email}</td>
                 </tr>
                 <tr>
-                    <th class="text-right"><g:message code="user.type"/></th><td
-                        class="text-left">${user.userType}</td>
+                    <th class="text-right"><g:message code="birth.date"/></th><td
+                        class="text-left">${user.birthDate}</td>
                 </tr>
             </table>
         </g:if>
