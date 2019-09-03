@@ -64,6 +64,7 @@ class UserService {
             if (!params.sort) {
                 order("id", "desc")
             }
+            eq("userType", GlobalConfig.USER_TYPE.USER)
         }
         return [list: userList, count: userList.totalCount]
     }

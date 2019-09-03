@@ -17,6 +17,13 @@
                                  errorMessage="Your Email Address is not Valid / Already Exist in System"/>
 </div>
 
+<div class="form-group">
+    <label><g:message code="phone.number"/> *</label>
+    <g:textField name="phoneNumber" class="form-control" value="${user?.phoneNumber}"
+             placeholder="Please Enter Phone Number"/>
+
+</div>
+
 <g:if test="${!edit}">
     <div class="form-group">
         <label><g:message code="password"/> *</label>
