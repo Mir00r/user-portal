@@ -15,6 +15,7 @@ class UserService {
         User user = new User(params)
         def response = AppUtils.saveResponse(false, user)
         if (user.validate()) {
+            user.age = AppUtils.getAge(params.birthDate, new Date())
             user.save(flush: true)
             if (!user.hasErrors()) {
                 response.isSuccess = true

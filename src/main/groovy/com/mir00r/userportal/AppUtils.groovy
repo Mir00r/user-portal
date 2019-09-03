@@ -43,7 +43,27 @@ class AppUtils {
         return "${getAppSession().getServletContext().getContextPath()}/"
     }
 
+    /**
+     * save error message with different id so that we can invoke the error message depends on errorId
+     * @param errorId
+     * @param message
+     * @return
+     */
     static saveErrorMessage(Integer errorId, String message) {
         return [errorId: errorId, errorMessage: message]
+    }
+
+    /**
+     * Calculate user age between two DATE object
+     * @param birthday
+     * @param offset
+     * @return
+     */
+    static Integer getAge(Date birthday, Date offset) {
+        def birthdayThisYear = offset.clone().clearTime()
+        birthdayThisYear[Calendar.MONTH] = birthday[Calendar.MONTH]
+        birthdayThisYear[Calendar.DATE] = birthday[Calendar.DATE]
+
+        offset[Calendar.YEAR] - birthday[Calendar.YEAR] - (birthdayThisYear > offset ? 1 : 0)
     }
 }
