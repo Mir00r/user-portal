@@ -1,7 +1,7 @@
 package com.mir00r.userportal
 
 class JQueryDatePickerTagLib {
-    def jqDatePicker = {attrs, body ->
+    /*def jqDatePicker = {attrs, body ->
         def out = out
         def name = attrs.name    //The name attribute is required for the tag to work seamlessly with grails
         def id = attrs.id ?: name
@@ -50,9 +50,9 @@ class JQueryDatePickerTagLib {
 
         out.println "})</script>"
 
-    }
+    }*/
 
-    /*static defaultEncodeAs = [taglib:'html']
+    static defaultEncodeAs = [taglib:'html']
     static encodeAsForTags = [jqDatePicker: 'raw']
     //static encodeAsForTags = [tagName: [taglib:'html'], otherTagName: [taglib:'none']]
 
@@ -111,5 +111,5 @@ class JQueryDatePickerTagLib {
         out.println "}"
         out.println "</script>"
 
-    }*/
+    }
 }

@@ -70,7 +70,7 @@
                                     <div class="col-md-6">
                                         %{--                                        <g:jqDatePicker name="birthDate" precision="day" value="${user?.birthDate}"--}%
                                         %{--                                                        required="required"/>--}%
-                                        <g:datePicker relativeYears="[-7..7]" id="fechaEstimadaInicio"
+                                        <g:datePicker relativeYears="[-50..8]" id="fechaEstimadaInicio"
                                                       name="birthDate" precision="day"
                                                       value="${user?.birthDate}"/>
                                     </div>
