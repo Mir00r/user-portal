@@ -42,4 +42,8 @@ class AppUtils {
     static String baseURL() {
         return "${getAppSession().getServletContext().getContextPath()}/"
     }
+
+    static saveErrorMessage(Integer errorId, String message) {
+        return [errorId: errorId, errorMessage: message]
+    }
 }

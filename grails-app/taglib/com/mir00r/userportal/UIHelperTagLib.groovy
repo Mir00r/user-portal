@@ -26,6 +26,11 @@ class UIHelperTagLib {
             authenticationService.getUserName()
         }
         out << '<div class="dropdown-menu">'
+        if (!authenticationService.isAdminUser()) {
+            out << g.link(controller: "changePassword", action: "edit", id: authenticationService.getLoginUserId(), class: "dropdown-item") {
+                g.message(code: "change.password")
+            }
+        }
         out << g.link(controller: "authentication", action: "logout", class: "dropdown-item") {
             g.message(code: "logout")
         }
@@ -42,7 +47,7 @@ class UIHelperTagLib {
             navigations.add([controller: "user", action: "index", name: "User List"])
         } else {
             navigations.add([controller: "profile", action: "details", id: authenticationService.getLoginUserId(), name: "Profile Page"])
-            navigations.add([controller: "profile", action: "index", name: "Change Password"])
+            navigations.add([controller: "changePassword", action: "edit", id: authenticationService.getLoginUserId(), name: "Change Password"])
         }
 
         navigations.each { menu ->
