@@ -36,18 +36,13 @@ class UIHelperTagLib {
      * showing navigation menu depends user type
      */
     def leftNavigation = { attrs, body ->
-        /*List navigations = [
-                [controller: "dashboard", action: "index", name: "dashboard"],
-                [controller: "contactGroup", action: "index", name: "contact.group"],
-                [controller: "contact", action: "index", name: "contact"],
-        ]*/
         List navigations = []
 
         if (authenticationService.isAdminUser()) {
-            navigations.add([controller: "user", action: "index", name: "user"])
+            navigations.add([controller: "user", action: "index", name: "User List"])
         } else {
-            navigations.add([controller: "user", action: "index", name: "profile.page"])
-            navigations.add([controller: "user", action: "index", name: "change.password"])
+            navigations.add([controller: "user", action: "index", name: "Profile Page"])
+            navigations.add([controller: "user", action: "index", name: "Change Password"])
         }
 
         navigations.each { menu ->

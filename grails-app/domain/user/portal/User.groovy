@@ -25,6 +25,7 @@ class User {
         lastName(nullable: true)
         address(nullable: true)
         phoneNumber(nullable: false)
+        age(nullable: true)
     }
 
     def beforeInsert() {
