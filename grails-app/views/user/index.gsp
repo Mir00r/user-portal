@@ -9,8 +9,8 @@
 <meta name="layout" content="main"/>
 
 <div class="card">
-    <div class="card-header">
-        <g:message code="user" args="['List Of']"/>
+    <div class="card-header page-title">
+        <g:message code="user" args="['List']"/>
 
         %{--Actions--}%
         <span class="float-right">
@@ -29,12 +29,6 @@
                     </div>
                 </g:form>
             </div>
-
-            %{--Create and Reload Panel--}%
-            <div class="btn-group">
-                <g:link controller="user" action="create" class="btn btn-success"><g:message code="create"/></g:link>
-                <g:link controller="user" action="index" class="btn btn-primary"><g:message code="reload"/></g:link>
-            </div>
         </span>
     </div>
 
@@ -45,7 +39,9 @@
             <tr>
                 <g:sortableColumn property="firstName" title="${g.message(code: "first.name")}"/>
                 <g:sortableColumn property="lastName" title="${g.message(code: "last.name")}"/>
+                <g:sortableColumn property="age" title="${g.message(code: "age")}"/>
                 <g:sortableColumn property="email" title="${g.message(code: "email")}"/>
+                <g:sortableColumn property="phoneNumber" title="${g.message(code: "phone.number")}"/>
                 <th class="action-row"><g:message code="action"/></th>
             </tr>
             </thead>
@@ -54,7 +50,9 @@
                 <tr>
                     <td>${info?.firstName}</td>
                     <td>${info?.lastName}</td>
+                    <td>${info?.age}</td>
                     <td>${info?.email}</td>
+                    <td>${info?.phoneNumber}</td>
 
                     %{--Table Actions --}%
                     <td>

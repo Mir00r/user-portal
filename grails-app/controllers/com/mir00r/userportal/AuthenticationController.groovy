@@ -22,7 +22,11 @@ class AuthenticationController {
      */
     def doLogin() {
         if (authenticationService.doLogin(params.email, params.password)) {
-            redirect(controller: "profile", action: "details", id: authenticationService.getLoginUserId())
+            if (authenticationService.isAdminUser()) {
+                redirect(controller: "user", action: "index")
+            } else {
+                redirect(controller: "profile", action: "details", id: authenticationService.getLoginUserId())
+            }
         } else {
             flash.message = AppUtils.infoMessage("Email or password is not valid.", false)
             redirect(controller: "authentication", action: "login")
