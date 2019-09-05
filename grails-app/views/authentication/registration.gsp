@@ -7,6 +7,37 @@
 
 <meta name="layout" content="public"/>
 
+<script type="text/javascript">
+    function emailCheck() {
+        var emailId = document.getElementById("emailid").value;
+        if (emailId == "") {
+            return false
+        }
+
+        USERPORTAL.ajax.call({
+            url: "${createLink(controller:'authentication', action:'checkEmailAvailable')}",
+            data: ({emailId: emailId}),
+            success: function (data) {
+                if (data.msg) {
+                    $("#emailid").css("border", "1px solid red");
+                    $("#email-availability-status").html("Already used").show();
+                    document.getElementById("submit").disabled = true;
+                    $("#email-availability-status").css("color", "red");
+                } else {
+                    $("#emailid").css("border", "initial");
+                    $("#email-availability-status").html("OK").show();
+                    document.getElementById("submit").disabled = false;
+                    $("#email-availability-status").css("color", "green");
+                }
+            },
+            error: function () {
+                alert('error');
+            }
+        });
+    }
+
+</script>
+
 <div id="global-wrapper">
     <div id="content-wrapper">
         <div class="container">
@@ -58,9 +89,10 @@
                                     <label class="col-md-4 col-form-label text-md-right"><g:message
                                             code="email"/></label>
 
-                                    <div class="col-md-6">
-                                        <g:textField name="email" class="form-control" required="required"/>
-                                    </div>
+                                    <div class="col-md-6" id="email-div">
+                                        <input type="email" name="email" id="emailid" onblur="emailCheck()" value=""
+                                               class="form-control"/>
+                                    </div><span id="email-availability-status"></span>
                                 </div>
 
                                 <div class="form-group row">
@@ -88,7 +120,7 @@
                                 </div>
 
                                 <div class="col-md-6 offset-md-4">
-                                    <g:submitButton name="registration" value="Registration"
+                                    <g:submitButton name="registration" value="Registration" id="submit"
                                                     class="btn btn-primary"/>
                                     <g:link controller="authentication" action="login"
                                             class="btn btn-primary"><g:message

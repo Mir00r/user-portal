@@ -1,5 +1,7 @@
 package com.mir00r.userportal
 
+import grails.converters.JSON
+
 class AuthenticationController {
 
     AuthenticationService authenticationService
@@ -59,5 +61,15 @@ class AuthenticationController {
             flash.redirectParams = response.model
             redirect(controller: "authentication", action: "registration")
         }
+    }
+
+    def checkEmailAvailable = {
+        def available = [:]
+        if(userService.getUserByEmail(params.emailId)) {
+            available["msg"] = true
+        } else {
+            available["msg"] = false
+        }
+        render available as JSON
     }
 }

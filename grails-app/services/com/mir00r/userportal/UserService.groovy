@@ -84,4 +84,17 @@ class UserService {
         }
         return true
     }
+
+    /**
+     * Check user is exist or not with corresponding email
+     * @param email
+     * @return
+     */
+    def getUserByEmail(String email) {
+        User user = User.findByEmail(email)
+        if (user) {
+            return true
+        }
+        return false
+    }
 }
