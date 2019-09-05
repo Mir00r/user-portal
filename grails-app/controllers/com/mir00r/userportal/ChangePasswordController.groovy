@@ -3,7 +3,6 @@ package com.mir00r.userportal
 import user.portal.User
 
 class ChangePasswordController {
-    AuthenticationService authenticationService
     ChangePasswordService changePasswordService
     UserService userService
 
@@ -11,6 +10,11 @@ class ChangePasswordController {
         [changePassword: flash.redirectParams]
     }
 
+    /**
+     * Redirect user information edit form through corresponding user id
+     * @param id
+     * @return
+     */
     def edit(Integer id) {
         if (flash.redirectParams) {
             [changePassword: flash.redirectParams]
@@ -25,6 +29,10 @@ class ChangePasswordController {
         }
     }
 
+    /**
+     * Redirect the login or change password page after submit the changes with proper message
+     * @return
+     */
     def updatePassword() {
         def response = userService.getById(params.id)
         if (!response) {

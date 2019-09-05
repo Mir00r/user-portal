@@ -19,7 +19,7 @@
 
             <div class="col-md-6 offset-md-4">
                 <g:submitButton class="btn btn-primary" name="login" value="${g.message(code: "change.password")}"/>
-                <g:link controller="profile" action="" class="btn btn-primary"><g:message
+                <g:link controller="profile" action="details" id="${user.id}" class="btn btn-primary"><g:message
                         code="clear"/></g:link>
 
             </div>
