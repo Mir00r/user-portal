@@ -19,12 +19,12 @@
             data: ({emailId: emailId}),
             success: function (data) {
                 if (data.msg) {
-                    $("#emailid").css("border", "1px solid red");
+                    //$("#emailid").css("border", "1px solid red");
                     $("#email-availability-status").html("Already used").show();
                     document.getElementById("submit").disabled = true;
                     $("#email-availability-status").css("color", "red");
                 } else {
-                    $("#emailid").css("border", "initial");
+                    //$("#emailid").css("border", "initial");
                     $("#email-availability-status").html("OK").show();
                     document.getElementById("submit").disabled = false;
                     $("#email-availability-status").css("color", "green");
@@ -36,7 +36,23 @@
         });
     }
 
+    function validatePhoneNumber(mobile) {
+        var regex = /^(?:\+88|01)?(?:\d{11}|\d{13})$/;
+
+        if (mobile == '' || !mobile.match(regex)) {
+            $("#number-validate-status").html("Invalid number").show();
+            document.getElementById("submit").disabled = true;
+            $("#number-validate-status").css("color", "red");
+            return false;
+        } else {
+            $("#number-validate-status").html("OK").show();
+            document.getElementById("submit").disabled = false;
+            $("#number-validate-status").css("color", "green");
+            return true;
+        }
+    }
 </script>
+
 
 <div id="global-wrapper">
     <div id="content-wrapper">
@@ -80,9 +96,11 @@
                                     <label class="col-md-4 col-form-label text-md-right"><g:message
                                             code="phone.number"/></label>
 
-                                    <div class="col-md-6">
-                                        <g:textField name="phoneNumber" class="form-control" required="required"/>
-                                    </div>
+                                    <div class="col-md-6" id="phone-number-div">
+                                        <input type="phone" name="phoneNumber" id="numberId"
+                                               onkeyup="return validatePhoneNumber(this.value)" value="" required
+                                               class="form-control"/>
+                                    </div><span id="number-validate-status"></span>
                                 </div>
 
                                 <div class="form-group row">
@@ -91,6 +109,7 @@
 
                                     <div class="col-md-6" id="email-div">
                                         <input type="email" name="email" id="emailid" onblur="emailCheck()" value=""
+                                               required
                                                class="form-control"/>
                                     </div><span id="email-availability-status"></span>
                                 </div>
@@ -100,8 +119,6 @@
                                             code="birth.date"/></label>
 
                                     <div class="col-md-6">
-                                        %{--                                        <g:jqDatePicker name="birthDate" precision="day" value="${user?.birthDate}"--}%
-                                        %{--                                                        required="required"/>--}%
                                         <g:datePicker relativeYears="[-50..8]" id="fechaEstimadaInicio"
                                                       name="birthDate" precision="day"
                                                       value="${user?.birthDate}"/>
@@ -116,7 +133,6 @@
                                         <g:passwordField name="password" class="form-control"
                                                          required="required"/>
                                     </div>
-
                                 </div>
 
                                 <div class="col-md-6 offset-md-4">
