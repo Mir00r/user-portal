@@ -7,6 +7,7 @@
 
 %{--Include Main Layout--}%
 <meta name="layout" content="main"/>
+<title><g:message code="profile.page" /></title>
 
 <div class="card">
     <div class="card-header text-center page-title">

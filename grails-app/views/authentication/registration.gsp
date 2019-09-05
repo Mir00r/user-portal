@@ -6,6 +6,7 @@
 --%>
 
 <meta name="layout" content="public"/>
+<title><g:message code="registration.page" /></title>
 
 <script type="text/javascript">
     function emailCheck() {

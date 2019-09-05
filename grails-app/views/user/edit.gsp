@@ -7,6 +7,7 @@
 
 %{--Include Main Layout--}%
 <meta name="layout" content="main"/>
+<title><g:message code="user" args="['Edit']"/></title>
 
 <div class="card">
     <div class="card-header">
