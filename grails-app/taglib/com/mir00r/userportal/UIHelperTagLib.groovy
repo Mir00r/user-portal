@@ -21,11 +21,11 @@ class UIHelperTagLib {
      * showing logged in member name and dropdown option to logout from the application
      */
     def userActionMenu = { attrs, body ->
-        out << '<li class="nav-item dropdown show">'
-        out << g.link(class: "nav-link dropdown-toggle", "data-toggle": "dropdown") {
+        out << '<li class="nav-item dropdown">'
+        out << g.link(class: "nav-link dropdown-toggle", "data-toggle": "dropdown", "aria-haspopup": "true", "aria-expanded": "false") {
             authenticationService.getUserName()
         }
-        out << '<div class="dropdown-menu">'
+        out << '<div class="dropdown-menu dropdown-menu-right", "aria-labelledby": "navbarDropdown">'
         if (!authenticationService.isAdminUser()) {
             out << g.link(controller: "changePassword", action: "edit", id: authenticationService.getLoginUserId(), class: "dropdown-item") {
                 g.message(code: "change.password")
@@ -51,13 +51,19 @@ class UIHelperTagLib {
         }
 
         navigations.each { menu ->
-            out << '<li class="list-group-item">'
+            //out << '<li class="list-group-item">'
+            //out << '<a class="list-group-item list-group-item-action bg-light">'
             if (menu.id > 0) {
-                out << g.link(controller: menu.controller, action: menu.action, id: menu.id) { g.message(code: menu.name, args: ['']) }
+                out << g.link(controller: menu.controller, action: menu.action, id: menu.id, class: "list-group-item list-group-item-action bg-light") {
+                    g.message(code: menu.name, args: [''])
+                }
             } else {
-                out << g.link(controller: menu.controller, action: menu.action) { g.message(code: menu.name, args: ['']) }
+                out << g.link(controller: menu.controller, action: menu.action) {
+                    g.message(code: menu.name, args: [''])
+                }
             }
-            out << '</li>'
+            //out << '</li>'
+            //out << '</a>'
         }
     }
 
