@@ -74,6 +74,19 @@
 </div>
 <!-- /#wrapper -->
 
+
+<!-- Footer -->
+<footer class="page-footer font-small blue fixed-bottom">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2018 Copyright:
+        <a href="https://www.linkedin.com/in/mir00r/" target="_blank">Abdur Razzak</a>
+    </div>
+    <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
 <!-- Menu Toggle Script -->
 <script>
     $("#menu-toggle").click(function (e) {
@@ -81,7 +94,5 @@
         $("#wrapper").toggleClass("toggled");
     });
 </script>
-
 </body>
-
 </html>

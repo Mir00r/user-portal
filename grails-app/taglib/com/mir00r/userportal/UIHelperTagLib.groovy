@@ -51,19 +51,15 @@ class UIHelperTagLib {
         }
 
         navigations.each { menu ->
-            //out << '<li class="list-group-item">'
-            //out << '<a class="list-group-item list-group-item-action bg-light">'
             if (menu.id > 0) {
                 out << g.link(controller: menu.controller, action: menu.action, id: menu.id, class: "list-group-item list-group-item-action bg-light") {
                     g.message(code: menu.name, args: [''])
                 }
             } else {
-                out << g.link(controller: menu.controller, action: menu.action) {
+                out << g.link(controller: menu.controller, action: menu.action, class: "list-group-item list-group-item-action bg-light") {
                     g.message(code: menu.name, args: [''])
                 }
             }
-            //out << '</li>'
-            //out << '</a>'
         }
     }
 
