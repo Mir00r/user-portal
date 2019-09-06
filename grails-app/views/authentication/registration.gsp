@@ -6,35 +6,45 @@
 --%>
 
 <meta name="layout" content="public"/>
-<title><g:message code="registration.page" /></title>
+<title><g:message code="registration.page"/></title>
 
 <script type="text/javascript">
+    function validateEmail(email) {
+        var regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return regex.test(email);
+    }
+
     function emailCheck() {
         var emailId = document.getElementById("emailid").value;
-        if (emailId == "") {
-            return false
-        }
 
-        USERPORTAL.ajax.call({
-            url: "${createLink(controller:'authentication', action:'checkEmailAvailable')}",
-            data: ({emailId: emailId}),
-            success: function (data) {
-                if (data.msg) {
-                    //$("#emailid").css("border", "1px solid red");
-                    $("#email-availability-status").html("Already used").show();
-                    document.getElementById("submit").disabled = true;
-                    $("#email-availability-status").css("color", "red");
-                } else {
-                    //$("#emailid").css("border", "initial");
-                    $("#email-availability-status").html("OK").show();
-                    document.getElementById("submit").disabled = false;
-                    $("#email-availability-status").css("color", "green");
+        if(emailId != "" && validateEmail(emailId)) {
+            $("#email-availability-status").html("Format OK").show();
+            document.getElementById("submit").disabled = false;
+            $("#email-availability-status").css("color", "green");
+
+            USERPORTAL.ajax.call({
+                url: "${createLink(controller:'authentication', action:'checkEmailAvailable')}",
+                data: ({emailId: emailId}),
+                success: function (data) {
+                    if (data.msg) {
+                        $("#email-availability-status").html("Already used").show();
+                        document.getElementById("submit").disabled = true;
+                        $("#email-availability-status").css("color", "red");
+                    } else {
+                        $("#email-availability-status").html("OK").show();
+                        document.getElementById("submit").disabled = false;
+                        $("#email-availability-status").css("color", "green");
+                    }
+                },
+                error: function () {
+                    alert('error');
                 }
-            },
-            error: function () {
-                alert('error');
-            }
-        });
+            });
+        } else {
+            $("#email-availability-status").html("Invalid Format").show();
+            document.getElementById("submit").disabled = true;
+            $("#email-availability-status").css("color", "red");
+        }
     }
 
     function validatePhoneNumber(mobile) {
