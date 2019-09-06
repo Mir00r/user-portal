@@ -5,6 +5,7 @@
 --%>
 
 <meta name="layout" content="public"/>
+<title><g:message code="login.page" /></title>
 
 <div id="global-wrapper">
     <div id="content-wrapper">

@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>
-        <g:layoutTitle default="User Portal"/>
+        <g:layoutTitle/>
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <asset:link rel="icon" href="favicon.ico" type="image/x-ico"/>
@@ -25,8 +25,9 @@
 <body>
 
 <header>
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark rounded">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top border">
         <a class="navbar-brand" href="#">User Portal</a>
+        <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
                 data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false"
                 aria-label="Toggle navigation">
