@@ -18,6 +18,8 @@ class AppInitializationService {
             user.password = "admin"
             user.phoneNumber = "01733838838"
             user.address = "Middle badda"
+            user.birthDate = new Date()
+            user.age = 0
             user.userType = GlobalConfig.USER_TYPE.ADMIN
             user.save(flash: true)
         }
