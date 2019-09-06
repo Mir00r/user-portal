@@ -38,7 +38,7 @@
                 </tr>
             </table>
 
-            <div class="form-action-panel">
+            <div class="form-action-panel col-md-6 offset-md-4">
                 <g:link controller="user" action="index" class="btn btn-primary"><g:message code="cancel"/></g:link>
             </div>
         </g:if>
