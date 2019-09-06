@@ -6,9 +6,12 @@ import user.portal.User
 
 class ChangePasswordService {
 
-    AuthenticationService authenticationService
-    UserService userService
-
+    /**
+     * Validate the change password form
+     * @param user
+     * @param params
+     * @return
+     */
     def updateUserPassword(User user, GrailsParameterMap params) {
         user.properties = params
         def response = AppUtils.saveResponse(false, user)
@@ -18,9 +21,9 @@ class ChangePasswordService {
         String confirmPassword = params.confirmPassword
 
         if (user) {
-            if (previousPassword.encodeAsMD5().equals(user.getPassword())) {
-                if (previousPassword.encodeAsMD5().equals(newPassword.encodeAsMD5())) {
-                    if (newPassword.equals(confirmPassword)) {
+            if (previousPassword.encodeAsMD5() == user.getPassword()) {
+                if (newPassword != previousPassword) {
+                    if (newPassword == confirmPassword) {
                         user.password = confirmPassword
                         user.save(flush: true)
                         response.isSuccess = true
