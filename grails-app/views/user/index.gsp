@@ -21,7 +21,7 @@
                 <g:form controller="user" action="index" method="GET">
                     <div class="input-group" id="search-area">
                         <g:select name="colName" class="form-control"
-                                  from="[firstName: 'First Name', lastName: 'Last Name', email: 'Email']"
+                                  from="[firstName: 'First Name', lastName: 'Last Name', email: 'Email', phoneNumber: 'Phone']"
                                   value="${params?.colName}" optionKey="key" optionValue="value"/>
                         <g:textField name="colValue" class="form-control" value="${params?.colValue}"/>
                         <span class="input-group-btn">

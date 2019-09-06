@@ -74,18 +74,13 @@
 </div>
 <!-- /#wrapper -->
 
-
 <!-- Footer -->
-<footer class="page-footer font-small blue fixed-bottom">
-
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© 2018 Copyright:
-        <a href="https://www.linkedin.com/in/mir00r/" target="_blank">Abdur Razzak</a>
+<div id="footer">
+    <div class="container">
+        <h4 class="text-muted credit">© 2019 Copyright: <a href="https://www.linkedin.com/in/mir00r/"
+                                                           target="_blank">Abdur Razzak</a>.</h4>
     </div>
-    <!-- Copyright -->
-
-</footer>
-<!-- Footer -->
+</div>
 
 <!-- Menu Toggle Script -->
 <script>
@@ -95,4 +90,5 @@
     });
 </script>
 </body>
+
 </html>
