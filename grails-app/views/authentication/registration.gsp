@@ -17,7 +17,7 @@
     function emailCheck() {
         var emailId = document.getElementById("emailid").value;
 
-        if(emailId != "" && validateEmail(emailId)) {
+        if (emailId != "" && validateEmail(emailId)) {
             $("#email-availability-status").html("Format OK").show();
             document.getElementById("submit").disabled = false;
             $("#email-availability-status").css("color", "green");
@@ -63,7 +63,6 @@
         }
     }
 </script>
-
 
 <div id="global-wrapper">
     <div id="content-wrapper">
@@ -128,12 +127,7 @@
                                 <div class="form-group row">
                                     <label class="col-md-4 col-form-label text-md-right"><g:message
                                             code="birth.date"/></label>
-
-                                    <div class="col-md-6">
-                                        <g:datePicker relativeYears="[-50..8]" id="fechaEstimadaInicio"
-                                                      name="birthDate" precision="day"
-                                                      value="${user?.birthDate}"/>
-                                    </div>
+                                    <g:jqDatePicker name="birthDate" id="datetimepicker1"/>
                                 </div>
 
                                 <div class="form-group row">
@@ -164,3 +158,5 @@
         </div>
     </div>
 </div>
+
+</script>

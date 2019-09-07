@@ -13,4 +13,5 @@
 //= require userportal.ajax
 //= require userportal.init
 //= require userportal.message.box
+//= require bootstrap-datepicker.min
 //= require_self
